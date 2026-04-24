@@ -20,31 +20,31 @@ class ExchangeServiceDesignedBatteryTest : DescribeSpec({
         clearAllMocks()
     }
 
-    describe("battery designed from equivalence classes for ExchangeService") {
+    describe("batería diseñada a partir de clases de equivalencia para ExchangeService") {
 
-        describe("input validation (Clases inválidas)") {
+        describe("validación de entrada (Clases inválidas)") {
             val provider = mockk<ExchangeRateProvider>()
             val service = ExchangeService(provider)
 
-            it("throws an exception when the amount is zero") {
+            it("lanza una excepción cuando la cantidad es cero") {
                 shouldThrow<IllegalArgumentException> {
                     service.exchange(Money(0, "USD"), "EUR")
                 }
             }
 
-            it("throws an exception when the amount is negative") {
+            it("lanza una excepción cuando la cantidad es negativa") {
                 shouldThrow<IllegalArgumentException> {
                     service.exchange(Money(-100, "USD"), "EUR")
                 }
             }
 
-            it("throws an exception when the source currency code is invalid") {
+            it("lanza una excepción cuando el código de la moneda de origen es inválido") {
                 shouldThrow<IllegalArgumentException> {
                     service.exchange(Money(100, "US"), "EUR") // Longitud distinta de 3
                 }
             }
 
-            it("throws an exception when the target currency code is invalid") {
+            it("lanza una excepción cuando el código de la moneda de destino es inválido") {
                 shouldThrow<IllegalArgumentException> {
                     service.exchange(Money(100, "USD"), "EURO") // Longitud distinta de 3
                 }
@@ -124,7 +124,7 @@ class ExchangeServiceDesignedBatteryTest : DescribeSpec({
                 every { provider.rate("USDJPY") } returns 150.0
                 every { provider.rate("JPYEUR") } returns 0.006
 
-                // Forzamos el orden de las monedas soportadas usando LinkedHashSet
+                // Forzamos el orden de las monedas soportadas usando linkedSetOf
                 val service = ExchangeService(provider, linkedSetOf("GBP", "JPY"))
 
                 val result = service.exchange(Money(100, "USD"), "EUR")
@@ -151,51 +151,4 @@ class ExchangeServiceDesignedBatteryTest : DescribeSpec({
             }
         }
     }
-})package com.example.exchange
-
-import io.kotest.assertions.throwables.shouldThrow
-import io.kotest.core.spec.style.DescribeSpec
-import io.kotest.matchers.shouldBe
-import io.mockk.clearAllMocks
-import io.mockk.confirmVerified
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.spyk
-import io.mockk.verify
-import io.mockk.verifySequence
-import org.iesra.revilofe.ExchangeRateProvider
-import org.iesra.revilofe.ExchangeService
-import org.iesra.revilofe.InMemoryExchangeRateProvider
-import org.iesra.revilofe.Money
-
-class ExchangeServiceDesignedBatteryTest : DescribeSpec({
-
-    afterTest {
-        clearAllMocks()
-    }
-
-    describe("battery designed from equivalence classes for ExchangeService") {
-
-        describe("input validation") {
-            val provider = mockk<ExchangeRateProvider>()
-            val service = ExchangeService(provider)
-
-            it("throws an exception when the amount is zero") {
-                shouldThrow<IllegalArgumentException> {
-                    service.exchange(Money(0, "USD"), "EUR")
-                }
-            }
-
-            it("throws an exception when the amount is negative") {
-            }
-
-            it("throws an exception when the source currency code is invalid") {
-            }
-
-            it("throws an exception when the target currency code is invalid") {
-
-            }
-        }
-
-       //..
-}})
+})
