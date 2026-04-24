@@ -6,7 +6,6 @@ Antes de empezar, recuerda que el objetivo es realizar la práctica aqui enlazad
 - [preguntas](#preguntas)
 
 Este proyecto usa `Kotest` y `MockK` para probar un servicio de cambio de divisas. Antes de escribir pruebas, conviene tener clara la diferencia entre tres dobles de prueba muy habituales: `stub`, `spy` y `mock`.
-
 ## ¿Mock, Stub o Spy? ¿Cuál es la diferencia?
 
 Los tres son dobles de prueba, es decir, objetos que sustituyen a dependencias reales durante un test. La diferencia principal está en el nivel de control que necesitamos y en lo que queremos comprobar.
