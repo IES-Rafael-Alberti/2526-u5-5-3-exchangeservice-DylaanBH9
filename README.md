@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Og7iRJ-r)
 # Mock, Stub o Spy en Kotlin
 
 Antes de empezar, recuerda que el objetivo es realizar la práctica aqui enlazada:
@@ -5,7 +6,6 @@ Antes de empezar, recuerda que el objetivo es realizar la práctica aqui enlazad
 - [preguntas](#preguntas)
 
 Este proyecto usa `Kotest` y `MockK` para probar un servicio de cambio de divisas. Antes de escribir pruebas, conviene tener clara la diferencia entre tres dobles de prueba muy habituales: `stub`, `spy` y `mock`.
-
 ## ¿Mock, Stub o Spy? ¿Cuál es la diferencia?
 
 Los tres son dobles de prueba, es decir, objetos que sustituyen a dependencias reales durante un test. La diferencia principal está en el nivel de control que necesitamos y en lo que queremos comprobar.
